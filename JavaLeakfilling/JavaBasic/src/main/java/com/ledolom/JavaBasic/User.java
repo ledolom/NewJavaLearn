@@ -1,6 +1,6 @@
 package com.ledolom.JavaBasic;
 
-public class User {
+public class User extends FatherUser{
     private String name;
     private Integer age;
 

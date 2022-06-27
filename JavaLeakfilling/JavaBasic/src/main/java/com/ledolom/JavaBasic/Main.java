@@ -29,11 +29,26 @@ public class Main {
         Field age = aClass.getDeclaredField("age");
         age.setAccessible(true);
         System.out.println(age.get(user));*/
-        List<String> list = new ArrayList<>();
-        list.add("string");
-        list.add("string1");
-        list.add("string2");
-        String s = JSONObject.toJSONString(list);
-        System.out.println(s);
+        //协变
+        User user = new User();
+        FatherUser fatherUser = new FatherUser();
+        List<User> list = new ArrayList<>();
+//        (fatherUser)user;
+        justTest(list);
+
+        //逆变 都只能用于引用，创建对象时无法使用。
+        List<FatherUser> list1 = new ArrayList<>();
+        List<? super User> next = null;
+        next=new ArrayList<User>();
+        next=new ArrayList<FatherUser>();
+        justTest1(list1);
+    }
+
+    private static void justTest(List<? extends FatherUser> user){
+        System.out.printf(user.toString());
+    }
+
+    private static void justTest1(List<? super User> user){
+        System.out.printf(user.toString());
     }
 }
