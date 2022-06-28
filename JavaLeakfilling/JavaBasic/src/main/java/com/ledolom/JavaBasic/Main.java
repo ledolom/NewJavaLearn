@@ -6,7 +6,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws NoSuchMethodException, NoSuchFieldException, IllegalAccessException, InvocationTargetException {
@@ -29,7 +31,8 @@ public class Main {
         Field age = aClass.getDeclaredField("age");
         age.setAccessible(true);
         System.out.println(age.get(user));*/
-        //协变
+
+        /*//协变
         User user = new User();
         FatherUser fatherUser = new FatherUser();
         List<User> list = new ArrayList<>();
@@ -41,7 +44,14 @@ public class Main {
         List<? super User> next = null;
         next=new ArrayList<User>();
         next=new ArrayList<FatherUser>();
-        justTest1(list1);
+        justTest1(list1);*/
+
+        List<String>strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+        List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
+
+        System.out.println("筛选列表: " + filtered);
+        String mergedString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
+        System.out.println("合并字符串: " + mergedString);
     }
 
     private static void justTest(List<? extends FatherUser> user){
