@@ -10,7 +10,7 @@ public class FindTask extends TimerTask {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //一般包上try catch,如果出现一场task会终止执行
+        //一般包上try catch,如果出现异常task会终止执行
 //        throw new RuntimeException("cuocuo");
     }
 }
