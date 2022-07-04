@@ -1,7 +1,10 @@
 package com.ledolom.JavaBasic.concurrent;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.*;
 
+@Slf4j
 public class ThreadPoolAppMain {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(1);
