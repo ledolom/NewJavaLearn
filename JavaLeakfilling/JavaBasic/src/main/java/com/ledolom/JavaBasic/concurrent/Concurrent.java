@@ -1,5 +1,9 @@
 package com.ledolom.JavaBasic.concurrent;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * CAS实现锁，内存地址A存的是0 CAS拿着（内存地址A，旧的值0，要改变的值1） 去改，内存的值和旧的值相等就改为1，
  * 其他人再跟他改就会失败。自旋就是不断重试
@@ -12,4 +16,13 @@ package com.ledolom.JavaBasic.concurrent;
  *
  */
 public class Concurrent {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1, 2, 3);
+        List<String> collect = list.stream().map(i -> {
+            return i.toString();
+        }).collect(Collectors.toList());
+    }
+    public static void test(){
+
+    }
 }
