@@ -21,6 +21,7 @@ public class Concurrent {
         List<String> collect = list.stream().map(i -> {
             return i.toString();
         }).collect(Collectors.toList());
+        System.out.println(collect);
     }
     public static void test(){
 
